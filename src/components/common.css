@@ -1,0 +1,19 @@
+.main{
+    border: 2px solid black;
+    margin: 30px;
+
+}
+
+.sub{
+    margin: 20px;
+}
+input{
+    border: 3px solid black;
+    margin: 10px;
+    border-radius: 10px;
+    
+   
+}
+
+
+
