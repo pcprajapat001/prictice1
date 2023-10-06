@@ -6,7 +6,7 @@ export function Questions() {
   const [btnname, btnName] = useState("Your typed text visible here");
 
   const handleRadiusChange = (event) => {
-    setBorderRadius(event.target.value);
+    setBorderRadius(bor);
   };
   const handleBorwidChange = (event) => {
     setBorwid(event.target.value);
@@ -29,19 +29,18 @@ export function Questions() {
     '>
       <h5 style={myStyle}>{btnname}</h5>
       <label>Border Radius:</label>
-      <input
-        type="range"
-        min="0"
-        max="50"
+      <button
+        
         value={borderRadius}
-        onChange={handleRadiusChange}
+        onClick={handleRadiusChange}
       />
-      <input
+      <button
         type="range"
         min="0"
+        
         max="50"
         value={borwid}
-        onChange={handleBorwidChange}
+        onClick={handleBorwidChange}
       />
       <label htmlFor="">Type Your Text</label>
       <input id='txt'
