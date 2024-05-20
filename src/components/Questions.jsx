@@ -1,58 +1,59 @@
-import React, { useState } from 'react';
+import React, { useState } from "react";
 
 export function Questions() {
   const [borderRadius, setBorderRadius] = useState(0);
-  const [borwid, setBorwid] = useState(0);
-  const [btnname, btnName] = useState("Your typed text visible here");
+  const [borderWidth, setBorderWidth] = useState(0); // Corrected variable name
+  const [buttonText, setButtonText] = useState(""); // Empty string for initial state
 
   const handleRadiusChange = (event) => {
-    setBorderRadius(bor);
+    // Access the value from a separate input element (not a button)
+    const newRadius = parseInt(event.target.value); // Assuming a number input
+    setBorderRadius(newRadius);
   };
-  const handleBorwidChange = (event) => {
-    setBorwid(event.target.value);
+
+  const handleBorderWidthChange = (event) => {
+    setBorderWidth(parseInt(event.target.value)); // Assuming a number input
   };
-  const handleBtnName = (event) => {
-    btnName(event.target.value);
+
+  const handleBtnNameChange = (event) => {
+    setButtonText(event.target.value);
   };
 
   const myStyle = {
-    
-    borderRadius: `${borderRadius}px`, // Apply border radius here
-    width: '200px',
-    height: '100px',
-    padding: '30px',
-    border : `${borwid}px solid red`
+    borderRadius: `${borderRadius}px`,
+    width: "200px",
+    height: "100px",
+    padding: "30px",
+    border: `${borderWidth}px solid red`,
   };
 
   return (
-    <div className='sub
-    '>
-      <h5 style={myStyle}>{btnname}</h5>
+    <div className="sub">
+      <h5 style={myStyle}>{buttonText}</h5>
       <label>Border Radius:</label>
-      <button
-        
+      <input
+        type="number"
         value={borderRadius}
-        onClick={handleRadiusChange}
-      />
-      <button
+        onChange={handleRadiusChange}
+      />{" "}
+      {/* Use an input for radius */}
+      <label>Border Width:</label>
+      <input
         type="range"
         min="0"
-        
         max="50"
-        value={borwid}
-        onClick={handleBorwidChange}
+        value={borderWidth}
+        onChange={handleBorderWidthChange}
       />
-      <label htmlFor="">Type Your Text</label>
-      <input id='txt'
+      <label htmlFor="txt">Type Your Text</label>
+      <input
+        id="txt"
         type="text"
-        
-        // value={ btnName}
-        onChange={handleBtnName}
+        value={buttonText}
+        onChange={handleBtnNameChange}
       />
       <p>Border Radius: {borderRadius}px</p>
-      <p>Border Width: {borwid}px</p>
+      <p>Border Width: {borderWidth}px</p>
     </div>
   );
 }
-
-
